@@ -1,0 +1,36 @@
+<main>
+    <form class="flex" [formGroup]="filterForm">
+        <div>
+            <input type="text" placeholder="Search for Country..." formControlName="search">
+        </div>
+        <div class="select" (click)="toggleRegion = !toggleRegion">
+            <div class="label">
+                <p>Select Region</p>
+                <span [ngStyle]="{'transform': toggleRegion? 'rotate(90deg)' : 'rotate(0deg)'}">></span>
+            </div>
+
+            <div class="options" [ngStyle]="{'height': toggleRegion? '336px' : '0'}" >
+                <div (click)="this.filterItems('region', '')">All</div>
+                <div (click)="this.filterItems('region', 'asia')">Asia</div>
+                <div (click)="this.filterItems('region', 'oceania')">Oceania</div>
+                <div (click)="this.filterItems('region', 'americas')">Americas</div>
+                <div (click)="this.filterItems('region', 'polar')">Polar</div>
+                <div (click)="this.filterItems('region', 'antartica')">Antartica</div>
+                <div (click)="this.filterItems('region', 'africa')">Africa</div>
+                <div (click)="this.filterItems('region', 'europe')">Europe</div>
+            </div>
+        </div>
+    </form>
+    <div class="content grid">
+        <ng-container
+            *ngFor="let item of allItems"
+        >
+            <app-item 
+            *ngIf="item.name.toLowerCase() != 'israel'"
+            [theItem]="item"
+            >
+            </app-item>
+        </ng-container>
+        
+    </div>
+</main>

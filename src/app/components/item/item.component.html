@@ -1,0 +1,14 @@
+<div class="box" (click)="passItem(theItem)">
+    <div class="img">
+        <img [src]="theItem.flags.png" alt="the flag" loading="lazy">
+    </div>
+
+    <div class="text">
+        <h2 class="name">{{theItem.name}}</h2>
+
+        <p>Population: <span class="number">{{theItem.population}} M</span></p>
+        <p>Region: <span class="number">{{theItem.region}}</span></p>
+        <p>Capital: <span class="number">{{theItem.capital || 'Empty'}}</span></p>
+    </div>
+
+</div>

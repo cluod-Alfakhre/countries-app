@@ -1,1 +1,72 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+:root{
+    --nav-bg:white;
+    --main-bg: #fafafa;
+    --text-color: black;
+
+    --hover-bg: #fafafa;
+    --shadow: 0 0 7px 2px #00000008;
+
+
+}
+
+*, *::after, *::before{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+img{
+    max-width: 100%;
+}
+ul{
+    list-style: none;
+}
+
+body{
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+/* Classes */
+
+.flex{
+    display: flex;
+}
+.flex-conf{
+    align-items: center;
+}
+
+.grid{
+    display: grid;
+}
+/////////////////////// 
+
+nav{
+    background-color: var(--nav-bg);
+    justify-content: space-between;
+    padding: 25px 2rem;
+    color: var(--text-color);
+
+    .theme{
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        padding: 0 1rem;
+        cursor: pointer;
+        font-weight: 600;
+    }
+}
+
+@media(max-width:400px){
+    nav{
+        padding: 25px 1rem;
+
+        h1{
+            font-size: 15px;
+        }
+        .theme{
+            font-size: 13px;
+        }
+    }
+}

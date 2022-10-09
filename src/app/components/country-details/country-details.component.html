@@ -1,0 +1,35 @@
+<main>
+    <div class="top-section">
+        <button (click)="goBack()">Go Back</button>
+    </div>
+
+    <div class="content">
+        <div class="img">
+            <img [src]="theItem.flags.svg" alt="the Country flag">
+        </div>
+
+        <div class="text">
+            <h1 class="name">{{theItem.name}}</h1>
+            <div class="details">
+                <div>
+                    <p>Native Name : <span class="value">{{theItem.nativeName}}</span></p>
+                    <p>Population : <span class="value">{{theItem.population}} M</span></p>
+                    <p>Region : <span class="value">{{theItem.region}}</span></p>
+                    <p>Sub Region : <span class="value">{{theItem.subregion}}</span></p>
+                    <p>Capital : <span class="value">{{theItem.capital || 'Empty'}}</span></p>
+                </div>
+
+                <div>
+                    <p>Top Level Domain : <span class="value">{{theItem.topLevelDomain[0]}}</span></p>
+                    <p>Currencies : <span class="value">{{theItem.currencies[0].code}}</span></p>
+                    <p>Languages : 
+                        <span class="value" *ngFor="let lang of theItem.languages">
+                            {{lang.name}} 
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>

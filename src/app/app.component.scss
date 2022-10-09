@@ -1,0 +1,12 @@
+main{
+    background-color: var(--main-bg);
+    min-height: 100vh;
+}
+main.dark{
+    --nav-bg: #2b3945;
+    --main-bg: #202c37;
+    --text-color: #fff;
+
+    --hover-bg: #364654;
+    --shadow: 0 2px 4px #0000000e;
+}

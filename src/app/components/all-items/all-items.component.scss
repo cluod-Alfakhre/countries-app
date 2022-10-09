@@ -1,0 +1,101 @@
+main{
+    background-color: var(--main-bg);
+    padding: 20px 2rem;
+}
+form{
+    justify-content: space-between;
+    align-items: center;
+    input{
+        border: none;
+        padding: 1rem 0 1rem 2rem;
+        width: 400px;
+        background-color: var(--nav-bg);
+        box-shadow: 0 2px 9px #0000000d;
+        font-size: 1rem;
+        caret-color: var(--text-color);
+
+        
+        &:focus{
+            outline: none;
+        }
+    }
+
+    .select{
+        width: 170px;
+        height: 50px;
+        background-color: var(--nav-bg);
+        box-shadow: 0 2px 9px #0000000d;
+        padding: 0 20px;
+        position: relative;
+        display: grid;
+        align-items: center;
+        cursor: pointer;
+        font-weight: 600;
+        color: var(--text-color);
+        
+        &:hover{
+            background-color: var(--hover-bg);
+        }
+
+
+        .label{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .options{
+            overflow: hidden;
+            position: absolute;
+            top: 110%;
+            right: 0;
+            background-color: var(--nav-bg);
+            width: 200px;
+            transition: .5s;
+            border-radius: 5px;
+
+            & >div{
+                padding: 10px 20px;
+                cursor: pointer;
+                &:hover{
+                    background-color: var(--main-bg);
+                }
+            }
+        }
+
+    }
+}
+.content{
+    margin-top: 2rem;
+    grid-template-columns: repeat(5, min-content);
+    row-gap: 3rem;
+    justify-content: space-between;
+}
+
+@media(max-width:1500px){
+    .content{
+        grid-template-columns: repeat(4, min-content);
+    }
+}
+
+@media(max-width:1024px){
+    .content{
+        grid-template-columns: repeat(auto-fill, minmax(264px, 200px));
+    }
+}
+
+@media(max-width:668px){
+    form{
+        flex-direction: column;
+        gap: 2rem;
+        input{
+            width: 310px;
+        }
+    }
+}
+@media(max-width:620px){
+    .content{
+        justify-content: center;
+    }
+}

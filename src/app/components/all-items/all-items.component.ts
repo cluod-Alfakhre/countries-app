@@ -21,7 +21,21 @@ export class AllItemsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.allItems = this.service.getAll();
+    if(this.service.fetchData){
+      this.service.getAll().subscribe((data:any)=>{
+
+        localStorage.setItem("allItems",JSON.stringify(data))
+        
+        this.allItems= JSON.parse(localStorage.getItem('allItems')!)
+  
+      });
+    }
+    else{
+
+      this.allItems= JSON.parse(localStorage.getItem('allItems')!)
+      
+    }
+
 
     this.filterForm.controls['search'].valueChanges.subscribe(
 

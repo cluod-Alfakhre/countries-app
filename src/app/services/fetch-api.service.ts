@@ -6,22 +6,14 @@ import { Injectable } from '@angular/core';
 })
 export class FetchApiService {
 
-  fetchData : boolean = !!localStorage.getItem('AllTheCountries');
+  fetchData : boolean = !localStorage.getItem('allItems');
 
   constructor(private http:HttpClient) { }
 
   getAll(){
-    if(this.fetchData){
 
-      this.http.get('https://restcountries.com/v2/all').subscribe((data:any)=>{
-
-        localStorage.setItem("allItems",JSON.stringify(data))
-
-      });
-
-    }
+    return this.http.get('https://restcountries.com/v2/all')
       
-    return JSON.parse(localStorage.getItem("allItems")!)
   }
 
 }

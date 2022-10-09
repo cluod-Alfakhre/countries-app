@@ -33,7 +33,7 @@ export class AllItemsComponent implements OnInit {
     else{
 
       this.allItems= JSON.parse(localStorage.getItem('allItems')!)
-      
+
     }
 
 
@@ -47,24 +47,24 @@ export class AllItemsComponent implements OnInit {
 
   filterItems(filterBy:string, keyWord:string){
     
-    this.allItems = this.service.getAll();
+    this.allItems = JSON.parse(localStorage.getItem('allItems')!);
     
     if(keyWord != '' && !!keyWord.trim().length){
 
       this.allItems = this.allItems.filter( (item:any)=> {
 
         if(filterBy == 'name'){
-          return item.name.toLowerCase().indexOf(keyWord) != -1
+          return item.name.toLowerCase().indexOf(keyWord.toLowerCase()) != -1
         }
         else{
-          return item.region.toLowerCase().indexOf(keyWord) != -1
+          return item.region.toLowerCase().indexOf(keyWord.toLowerCase()) != -1
         }
 
       })
 
     }
     else{//if keyword is empty
-      this.allItems = this.service.getAll()
+      this.allItems = JSON.parse(localStorage.getItem('allItems')!);
     }
 
     return this.allItems;
